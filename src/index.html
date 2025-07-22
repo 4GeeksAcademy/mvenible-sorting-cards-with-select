@@ -4,31 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="./assets/img/4geeks.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-
-    <!-- Fontawesome is our recomended library for icons -->
+    <title>Markcus Multi Card Generator & Sorter</title>
+    <!-- Fontawesome is our recommended library for icons -->
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <div class="controls">
+      <h1>🃏 Markcus Multi-Card Generator & Sorter 🃏</h1>
+      
+      <div class="input-group">
+        <label>How many cards do you want?</label>
+        <div class="number-selector">
+          <button class="arrow-btn" id="decreaseBtn" onclick="decreaseCards()">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="number-display" id="cardCount">5</div>
+          <button class="arrow-btn" id="increaseBtn" onclick="increaseCards()">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+        </div>
       </div>
+      
+      <button class="btn" id="drawBtn" onclick="drawCards()">
+        🎲 Draw Cards
+      </button>
+      
+      <button class="btn" id="sortBtn" onclick="sortCards()" disabled>
+        🔄 Sort Cards (Selection Sort)
+      </button>
     </div>
 
+    <!-- Cards Display Area -->
+    <div class="cards-container" id="cardsContainer">
+      <p style="color: #ccc; font-size: 18px; width: 100%; text-align: center;">
+        Use the arrows to select number of cards, then click "Draw Cards" to generate your hand!
+      </p>
+    </div>
+
+    <!-- Sorting Steps Display -->
+    <div class="sorting-steps" id="sortingSteps" style="display: none;">
+      <h3>📋 Selection Sort Steps</h3>
+      <div id="stepsContainer"></div>
+    </div>
     <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
     <script type="module" src="/app.js"></script>
   </body>
